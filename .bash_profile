@@ -77,7 +77,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # z beats cd most of the time. `brew install z`
-zpath="$(brew --prefix)/etc/profile.d/z.sh"
+zpath="~/bin/z.sh"
 [ -s $zpath ] && source $zpath
 
 
@@ -90,21 +90,22 @@ if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
 fi;
 
 # bash completion.
-if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-    source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
+# if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+#     source "$(brew --prefix)/share/bash-completion/bash_completion";
+# elif [ -f /etc/bash_completion ]; then
+if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion;
 fi;
 
-# homebrew completion
-if  which brew > /dev/null; then
-    source "$(brew --prefix)/etc/bash_completion.d/brew"
-fi;
+# # homebrew completion
+# if  which brew > /dev/null; then
+#     source "$(brew --prefix)/etc/bash_completion.d/brew"
+# fi;
 
-# hub completion
-if  which hub > /dev/null; then
-    source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
-fi;
+# # hub completion
+# if  which hub > /dev/null; then
+#     source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
+# fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type __git_complete &> /dev/null; then
